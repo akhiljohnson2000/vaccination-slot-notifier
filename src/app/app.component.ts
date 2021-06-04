@@ -86,8 +86,10 @@ export class AppComponent implements OnInit {
 
       // data['centers'][0].sessions[0].available_capacity = 1
 
-      if (data['centers'][0].max18CountD1 > 0 ||
-      data['centers'][0].max45CountD1 > 0 ) {
+      if (data['centers'][0]?.max18CountD1 > 0 || data['centers'][0]?.max45CountD1 > 0 ||
+      data['centers'][1]?.max18CountD1 > 0 || data['centers'][1]?.max45CountD1 > 0 ||
+      data['centers'][2]?.max18CountD1 > 0 || data['centers'][2]?.max45CountD1 > 0 ||
+      data['centers'][3]?.max18CountD1 > 0 || data['centers'][3]?.max45CountD1 > 0 ) {
         var audio = new Audio();
         audio.src = "https://d6cp9b00-a.akamaihd.net/downloads/ringtones/files/mp3/silent-beep-1859.mp3";
         audio.load();
