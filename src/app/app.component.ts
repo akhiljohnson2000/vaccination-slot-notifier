@@ -40,7 +40,7 @@ export class AppComponent  {
           data['centers'][0].time = this.now;
           this.vaccineSlotsArray.push(data)
           console.log(data);
-
+          data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
             var audio = new Audio();
             audio.src = "../../../assets/beep.mp3";
