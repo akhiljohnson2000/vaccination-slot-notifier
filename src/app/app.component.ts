@@ -43,7 +43,7 @@ export class AppComponent  {
           data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
             var audio = new Audio();
-            audio.src = "assets/beep.mp3";
+            audio.src = "./beep.mp3";
             audio.load();
             setTimeout(() => {
               audio.play();
