@@ -286,3 +286,7 @@
       visibility: hidden;
     }
   }
+
+  .col{
+    text-align: center;
+  }
