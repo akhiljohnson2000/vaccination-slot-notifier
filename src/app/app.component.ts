@@ -47,7 +47,7 @@ export class AppComponent  {
             // audio.crossOrigin = 'anonymous';
 
 
-            let audio: HTMLAudioElement = new Audio("./beep.mp3");
+            let audio: HTMLAudioElement = new Audio("beep.mp3");
 
 
             // audio.load();
