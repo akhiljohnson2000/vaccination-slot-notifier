@@ -32,22 +32,22 @@
 
 <table class="table table-striped" *ngIf="vaccineSlotsArray.length > 0">
   <thead style="border-style: hidden !important;">
-    <tr style="text-align: center;">
+    <tr style="text-align: center;"> 
       <th scope="col" style="width: 100px;">Time</th>
       <th scope="col">Name</th>
-      <th scope="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-1]['centers'][0].sessions[0]">18</th>
-      <th scope="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-1]['centers'][0].sessions[1]">45</th>
+      <th scope="col">18 <span style="font-weight: 100;">(D1,D2)</span></th>
+      <th scope="col">45 <span style="font-weight: 100;">(D1,D2)</span></th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let slot of vaccineSlotsArray; let i = index" style="text-align: center;border-style: none !important;">
-      <td scope="row">{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].time | date:"hh:mm:ss a"}}</td>
-      <td>{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].name}}</td>
-      <td  *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0]?.available_capacity == 0" >{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0]?.available_capacity}}</td>
-      <td   *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0]?.available_capacity > 0" style="background-color: #94caff;">{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0]?.available_capacity}}</td>
-      <td *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1]?.available_capacity == 0">{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1]?.available_capacity}}</td>
-      <td *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1]?.available_capacity > 0" style="background-color: #94caff;">{{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1]?.available_capacity}}</td>
-    </tr> 
+  <tbody *ngFor="let slot of vaccineSlotsArray; let i = index" style="border-style: hidden !important;text-align: center;">
+    <tr *ngFor="let center of vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers']" [ngStyle]="{'background-color': (i % 2 == 0)? '#e9ecef' : 'white'}">
+        <td scope="row">{{center.time | date:"hh:mm:ss a"}}</td>
+        <td>{{center.name}}</td> 
+        <td *ngIf="center.max18CountD1 == 0 && center.max18CountD2 == 0">0 , 0</td>
+        <td *ngIf="!(center.max18CountD1 == 0 && center.max18CountD2 == 0)"style="background-color: #94caff;">{{center.max18CountD1}} , {{center.max18CountD2}}</td>
+        <td *ngIf="center.max45CountD1 == 0 && center.max45CountD2 == 0">0 , 0</td>
+        <td *ngIf="!(center.max45CountD1 == 0 && center.max45CountD2 == 0)"style="background-color: #94caff;">{{center.max45CountD1}} , {{center.max45CountD2}}</td>
+      </tr>    
   </tbody>
 </table>
 
