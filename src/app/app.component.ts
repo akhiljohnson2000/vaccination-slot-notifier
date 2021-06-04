@@ -42,15 +42,9 @@ export class AppComponent  {
           console.log(data);
           data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
-            // var audio = new Audio();
-            // audio.src = "./beep.mp3";
-            // audio.crossOrigin = 'anonymous';
-
-
-            let audio: HTMLAudioElement = new Audio("beep.mp3");
-
-
-            // audio.load();
+            var audio = new Audio();
+            audio.src = "https://d6cp9b00-a.akamaihd.net/downloads/ringtones/files/mp3/silent-beep-1859.mp3";
+            audio.load();
             setTimeout(() => {
               audio.play();
               setTimeout(() => {
