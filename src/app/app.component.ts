@@ -40,7 +40,7 @@ export class AppComponent  {
           data['centers'][0].time = this.now;
           this.vaccineSlotsArray.push(data)
           console.log(data);
-          data['centers'][0].sessions[0].available_capacity  = 1
+          // data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
             var audio = new Audio();
             audio.src = "https://d6cp9b00-a.akamaihd.net/downloads/ringtones/files/mp3/silent-beep-1859.mp3";

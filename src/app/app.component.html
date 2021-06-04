@@ -2,8 +2,6 @@
 
   <label>Slot Finder</label>
   <input type="text" [(ngModel)]="pincode" placeholder="Enter pincode">
-  <button (click)="slotFinderStatusChange($event)"></button>
-
 
   <div *ngIf="vaccineSlotsArray.length > 0">
     <div>
