@@ -4,12 +4,12 @@ import { DataService } from './app.service';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.css' ]
 })
-export class AppComponent {
-
+export class AppComponent  {
+  
   now: number;
-  pincode: number;
+  pincode : number;
   slotFinderStatus: boolean = true;
   setIntervalForApiCall;
   vaccineSlotsArray: Array<object> = [];
@@ -25,36 +25,32 @@ export class AppComponent {
   slotFinderStatusChange(event) {
     if (this.slotFinderStatus) {
       this.setIntervalForApiCall = setInterval(() => {
-        let audioPlayer = document.getElementById("myAudio") as HTMLVideoElement
-
-
-
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth() + 1;
         var yyyy = today.getFullYear();
-        var liveDate = dd + '-' + mm + '-' + yyyy;
+        var liveDate = dd+'-'+mm+'-'+yyyy;
 
-
+        
         var apiparam = {
           date: liveDate,
-          pincode: this.pincode
+          pincode : this.pincode
         }
         this.dataService.sendGetRequest(apiparam).subscribe((data: any[]) => {
           data['centers'][0].time = this.now;
           this.vaccineSlotsArray.push(data)
           console.log(data);
-          data['centers'][0].sessions[0].available_capacity = 1
+          data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
-
-
+            var audio = new Audio();
+            audio.src = "./beep.mp3";
+            audio.load();
             setTimeout(() => {
-              audioPlayer.play();
-
+              audio.play();
               setTimeout(() => {
-                audioPlayer.play();
+                audio.play();
                 setTimeout(() => {
-                  audioPlayer.play();
+                  audio.play();
                 }, 1000);
               }, 1000);
             }, 1000);
