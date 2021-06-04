@@ -23,7 +23,7 @@ export class AppComponent  {
   }
 
   slotFinderStatusChange(event) {
-    if (this.pincode && this.pincode.toString().length == 6) {
+    if (this.pincode && this.pincode.toString().length == 5) {
       this.setIntervalForApiCall = setInterval(() => {
         var today = new Date();
         var dd = today.getDate();
