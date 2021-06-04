@@ -46,12 +46,12 @@ export class AppComponent  {
             var audio = new Audio();
             audio.src = "https://d6cp9b00-a.akamaihd.net/downloads/ringtones/files/mp3/silent-beep-1859.mp3";
             audio.load();
+            audio.play();
             setTimeout(() => {
               audio.play();
               setTimeout(() => {
                 audio.play();
                 setTimeout(() => {
-                  audio.play();
                 }, 1000);
               }, 1000);
             }, 1000);
