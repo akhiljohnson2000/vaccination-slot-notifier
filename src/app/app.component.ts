@@ -63,7 +63,7 @@ export class AppComponent implements OnInit{
       data['centers'][0].time = this.now;
       this.vaccineSlotsArray.push(data);
 
-      data['centers'][0].sessions[0].available_capacity = 1
+      // data['centers'][0].sessions[0].available_capacity = 1
 
       if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
         var audio = new Audio();
