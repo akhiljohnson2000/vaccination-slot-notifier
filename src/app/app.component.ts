@@ -42,12 +42,15 @@ export class AppComponent  {
           console.log(data);
           data['centers'][0].sessions[0].available_capacity  = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
-            var audio = new Audio();
-            audio.src = "./beep.mp3";
-            audio.crossOrigin = 'anonymous';
+            // var audio = new Audio();
+            // audio.src = "./beep.mp3";
+            // audio.crossOrigin = 'anonymous';
 
 
-            audio.load();
+            let audio: HTMLAudioElement = new Audio("./beep.mp3");
+
+
+            // audio.load();
             setTimeout(() => {
               audio.play();
               setTimeout(() => {

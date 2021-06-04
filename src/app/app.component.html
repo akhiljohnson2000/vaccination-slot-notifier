@@ -38,10 +38,10 @@
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity}}
       </div>
 
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity == 0">
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity == 0">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
       </div>
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity > 0"
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity > 0"
         style="background-color: greenyellow;">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
       </div>
