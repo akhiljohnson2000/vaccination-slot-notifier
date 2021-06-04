@@ -1,4 +1,51 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)dwd wqd
-</p>
+<li>
+
+  <label>Slot Finder</label>
+  <input type="text" [(ngModel)]="pincode" placeholder="Enter pincode">
+  <button (click)="slotFinderStatusChange($event)"></button>
+
+
+  <div *ngIf="vaccineSlotsArray.length > 0">
+    <div>
+      <div>
+        Time
+      </div>
+      <div>
+        Name
+      </div>
+      <div>
+        18
+      </div>
+      <div>
+        45
+      </div>
+    </div>
+
+
+    <div *ngFor="let slot of vaccineSlotsArray; let i = index">
+      <div>
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].time | date:"HH:mm:ss"}}
+      </div>
+      <div>
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].name}}
+      </div>
+
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity == 0">
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity}}
+      </div>
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity > 0"
+        style="background-color: greenyellow;">
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity}}
+      </div>
+
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity == 0">
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
+      </div>
+      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity > 0"
+        style="background-color: greenyellow;">
+        {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
+      </div>
+    </div>
+  </div>
+
+</li>
