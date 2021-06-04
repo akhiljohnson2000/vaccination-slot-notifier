@@ -22,26 +22,26 @@
     </div>
 
 
-    <div *ngFor="let slot of vaccineSlotsArray; let i = index">
-      <div>
+    <div  class="row" *ngFor="let slot of vaccineSlotsArray; let i = index">
+      <div class="col">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].time | date:"HH:mm:ss"}}
       </div>
-      <div>
+      <div class="col">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].name}}
       </div>
 
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity == 0">
+      <div class="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity == 0">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity}}
       </div>
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity > 0"
+      <div class="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity > 0"
         style="background-color: greenyellow;">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[0].available_capacity}}
       </div>
 
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity == 0">
+      <div class="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity == 0">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
       </div>
-      <div *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity > 0"
+      <div class="col" *ngIf="vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity > 0"
         style="background-color: greenyellow;">
         {{vaccineSlotsArray[vaccineSlotsArray.length-i-1]['centers'][0].sessions[1].available_capacity}}
       </div>
