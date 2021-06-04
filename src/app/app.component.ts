@@ -25,7 +25,8 @@ export class AppComponent {
   slotFinderStatusChange(event) {
     if (this.slotFinderStatus) {
       this.setIntervalForApiCall = setInterval(() => {
-        var audioPlayer = <HTMLVideoElement>document.getElementById("myAudio");
+        let audioPlayer = document.getElementById("myAudio") as HTMLVideoElement
+
 
 
         var today = new Date();
@@ -45,8 +46,11 @@ export class AppComponent {
           console.log(data);
           data['centers'][0].sessions[0].available_capacity = 1
           if (data['centers'][0].sessions[0].available_capacity > 0 || data['centers'][0].sessions[0].available_capacity > 0) {
+
+
             setTimeout(() => {
               audioPlayer.play();
+
               setTimeout(() => {
                 audioPlayer.play();
                 setTimeout(() => {
