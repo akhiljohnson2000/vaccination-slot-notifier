@@ -1,8 +1,10 @@
-<li>
 
+<div>
   <label>Slot Finder</label>
   <input type="text" [(ngModel)]="pincode" (change)="slotFinderStatusChange('qwec')" placeholder="Enter pincode">
+</div>
 
+ 
   <div *ngIf="vaccineSlotsArray.length > 0">
     <div>
       <div>
